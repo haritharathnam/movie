@@ -1,0 +1,440 @@
+#include<stdio.h>
+int place_select();
+int mv_select();
+int time_select();
+int seat_type();
+int date();
+int payment();
+void cancel();
+void seatselect();
+
+int main()
+{
+    int r1,r2,r3,r4,r5,r6,j1,j2,j3,j4,j5,j6;
+    printf("\t\t********************************************\n");
+    printf("\t\tWELCOME TO THE WORLD OF MOVIE TICKET BOOKING.\n\t\t********************************************\nYou no longer have to wait in the long queues for the tickets. We are here to save your precious time.\n");
+    r1=place_select();
+    r2=mv_select();
+    r5=date();
+    r3=time_select();
+    seatselect();
+    r4=seat_type();
+    r6=payment();
+    cancel();
+
+    {
+       if (r1==1)
+        j1 = "HYDERABAD";
+       else if (r1==2)
+        j1 = "BANGLORE";
+       else
+        j1 = "MUMBAI";
+    if (r2==1)
+        j2= "ARAVINDA SAMETHA" ;
+       else  if (r2==2)
+        j2= "VENOM" ;
+       else  if (r2==3)
+        j2= "DHADAK" ;
+       else  if (r2==4)
+        j2= "DHADAK" ;
+       else if (r2==5)
+        j2= "HARRY POTTER" ;
+    if (r3==1)
+        j3= "10:00";
+        else if (r3==2)
+        j3= "5:15";
+        else if (r3==3)
+        j3= "9:00";
+     if (r4==1)
+        j4= "RECLINER";
+      else
+        j4= "SOFA";
+     if (r5==1)
+        j6= "03/11/2018";
+       else  if (r5==2)
+        j6= "04/11/2018";
+        else if (r5==3)
+        j6= "05/11/2018";
+        else if (r5==4)
+        j6= "06/11/2018";
+       else  if (r5==5)
+        j6= "07/11/2018";
+        else
+        j6= "08/11/2018";
+     if (r6==1)
+        j5= "CREDIT CARD";
+     else
+        j5= "PAYTM";
+     printf("-------------------------------------------------------------------------------- \n");
+     printf("\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * \n \n\t\t* PLACE: %s\t   MOVIE: %s  *\n",j1,j2);
+     printf("\n\t\t* TIME: %s\t\t   SEAT TYPE:%s\t    *\n", j3,j4);
+     printf("\n\t\t* DATE: %s\t\t\t\t    *\n",j6);
+     printf("\n\t\t* PAID USING: %s          \t\t    *\n", j5);
+     printf("\n\t\t* * * * * * * * * * * * * * * * * * * * * * * * * * * \n");
+    printf("\n-------------------------------------------------------------------------------- \n");
+    }
+
+}
+
+    int place_select()
+    {
+        int opt;
+        yes:
+    printf("\n *>Please select the city\n *>1.Hyderabad\n *>2.Bangalore\n *>3.Mumbai\n");
+    scanf("%d", &opt);
+    switch (opt)
+     {
+    case 1 :
+        printf("***You've selected Hyderabad.***\n");
+        break;
+    case 2 :
+        printf("***You've selected Bangalore.***\n");
+        break;
+    case 3 :
+        printf("***You've selected Mumbai.***\n");
+        break;
+    default :
+        printf("###wrong option###\n");
+        goto yes;
+     }
+     return opt;
+    }
+
+    int date()
+    {
+        int v;
+        printf("The available dates for the movie are:\n *>1.03/11/2018\n *>2.04/11/2018\n *>3.05/11/2018\n *>4.06/11/2018\n *>5.07/11/2018\n *>6.08/11/2018\n ");
+        printf("Please choose a date:");
+        scanf("%d", &v);
+        return v;
+    }
+
+    int mv_select()
+    {
+        int opt1;
+        no:
+    printf(" Please select the movie you want to see.\n MOVIES YOU MIGHT LIKE:\n*>1.Aravinda sametha\n*>2.Venom\n*>3.Devadas\n*>4.Dhadak\n*>5.Harry potter\n");
+    scanf("%d",&opt1);
+    switch (opt1)
+    {
+    case 1 :
+        printf("\n\t\t\t****************\n\t\t\tARAVINDA SAMETHA\n\t\t\t****************\n Hey good choice.\n I've heard that this movie is ENTERTAINING. DO ENJOY\n ");
+        break;
+    case 2 :
+        printf("\n\t\t\t*****\n\t\t\tVENOM\n\t\t\t*****\n Hey good choice.\n I've heard that this movie is CRAZY. DO ENJOY\n ");
+        break;
+    case 3 :
+        printf("\n\t\t\t*******\n\t\t\tDEVADAS\n\t\t\t*******\n Hey good choice.\n I've heard that this movie is WORTH WATCHING. DO ENJOY\n ");
+        break;
+    case 4 :
+        printf("\n\t\t\t******\n\t\t\tDHADAK\n\t\t\t******\n Hey good choice.\n I've heard that this movie is RAVISHING. DO ENJOY\n ");
+        break;
+    case 5 :
+        printf("\n\t\t\t************\n\t\t\tHARRY POTTER\n\t\t\t************\n Hey good choice.\n I've heard that this movie is ALLURING. DO ENJOY\n ");
+        break;
+    default:
+        printf("Aren't you gonna watch any of these?\n");
+        goto no;
+    }
+    return opt1;
+
+    }
+    int time_select()
+    {
+        int opt2;
+        yahoo:
+    printf("\n-------Please select the timings for which you want to watch the movie.-------\n *>1.10:00AM\n *>2.5:15PM\n *>3.9:00PM\n");
+    scanf("%d", &opt2);
+    switch (opt2)
+    {
+    case 1 :
+        printf(" Great!\n So you want you enjoy the movie in the morning.\n");
+        break;
+    case 2 :
+        printf(" Great!\n So you want you enjoy the movie in the evening.\n");
+        break;
+    case 3 :
+        printf(" Great!\n So you want you enjoy the movie in the night.\n");
+        break;
+    default :
+
+        printf("Sorry! There's no such timing\n");
+        goto yahoo;
+    }
+    return opt2;
+    }
+
+
+    int seat_type()
+    {
+        int cost,a, b,e,c,x,d,f,i,e1 ;
+        char array[21];
+        seat:
+    printf(" You want to have a seat in the\n *>1.Recliner\n *>2.Sofa\n");
+    scanf("%d", &a);
+    if (a==1)
+    {
+        printf("------------------THE COST FOR EACH RECLINER IS Rs.250-------------------\n \t\t  YOU CAN CHOOSE A MAXIMUM OF 1O TICKETS\n ");
+        cost=250;
+         printf("  \n!!!!!!!!!!!!!!!  Hey! There is a good news for you people.!!!!!!!!!!!!!!!\n  If your number of tickets are more than FOUR(4),then we are offering you 10 Percent off on your total bill.\n  Please select the number of tickets you want\n");
+    scanf("%d", &b);
+        printf("enter the seat numbers");
+      for (i=0; i<b; i++)
+        scanf("%s", &array[i]);
+         for (i=0; i<b; i++)
+               {
+                  printf("THE SEAT(S) YOU'VE SELECTED:  %c\n", array[i]);
+                }
+           if (b>4)
+             {
+
+        c=b*cost ;
+        d=c-(c/10);
+     printf("  \nYou are lucky! As you've selected more than 4 tickets, we are giving you 10 percent off on your total bill.\n  Your actual bill is Rs.%d.\n  But now you only have to pay Rs.%d\n", c,d);
+fun3:
+     printf("\n\t\t***************************\n\t\tDo you want to GRAB A BITE.\n\t\t***************************\n If so, please select from below\n 1.French fries- Rs.100\n 2.Burger-Rs.150\n 3.Nachos with dips-Rs.200\n If not, press zero(0)");
+    scanf("%d",&e);
+    switch (e)
+    {
+    case 1 :
+    printf("-------------------FRENCH FRIES!---------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=100*f;
+    printf("Your total bill is= Rs.%d\n", d+x );
+    break;
+     case 2 :
+    printf("----------------------------BURGER!------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=150*f;
+    printf("Your total bill is= Rs.%d\n", d+x );
+    break;
+     case 3 :
+    printf("---------------------NACHOS WITH DIPS!--------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=200*f;
+    printf("Your total bill is= Rs.%d\n", d+x );
+    break;
+     case 0 :
+        printf("\n");
+        break;
+    default :
+    printf("\n");
+  goto fun3;
+       }
+    }
+    else
+    {
+
+       c=b*cost;
+    printf("\nYou've selected %d seats.\n The total cost for your tickets is= Rs.%d\n",b,c);
+fun2:
+    printf("\n\t\t***************************\n\t\tDo you want to GRAB A BITE.\n\t\t***************************\n If so, please select from below\n 1.French fries- Rs.100\n 2.Burger-Rs.150\n 3.Nachos with dips-Rs.200\n If not, press zero(0)");
+    scanf("%d",&e);
+    switch (e)
+    {
+    case 1 :
+    printf("-------------------------FRENCH FRIES!------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=100*f;
+    printf("Your total bill is= Rs.%d\n", c+x );
+    break;
+     case 2 :
+    printf("---------------------------BURGER!-------------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=150*f;
+    printf("Your total bill is= Rs.%d\n", c+x );
+    break;
+     case 3 :
+    printf("-------------------------NACHOS WITH DIPS!-------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=200*f;
+    printf("Your total bill is= Rs.%d\n", c+x );
+    break;
+     case 0 :
+        printf("\n");
+        break;
+    default :
+    printf("\n");
+    goto fun2;
+    }
+    }
+
+
+
+    }
+    else if (a==2)
+    {
+        printf("---------------------THE COST FOR EACH SOFA SEAT IS Rs.150---------------------\n");
+        cost=150;
+      printf("  \n!!!!!!!!!!!!!!!  Hey! There is a good news for you people.!!!!!!!!!!!!!!!\n  If your number of tickets are more than FOUR(4),then we are offering you 10 Percent off on your total bill.\n  Please select the number of tickets you want\n");
+    scanf("%d", &b);
+        printf("enter the seat numbers");
+      for (i=0; i<b; i++)
+        scanf("%s", &array[i]);
+         for (i=0; i<b; i++)
+               {
+                  printf("THE SEAT(S) YOU'VE SELECTED:  %c\n", array[i]);
+                }
+           if (b>4)
+             {
+
+        c=b*cost ;
+        d=c-(c/10);
+     printf("  \nYou are lucky! As you've selected more than 4 tickets, we are giving you 10 percent off on your total bill.\n  Your actual bill is Rs.%d.\n  But now you only have to pay Rs.%d\n", c,d);
+     fun1:
+     printf("\n\t\t***************************\n\t\tDo you want to GRAB A BITE.\n\t\t***************************\n If so, please select from below\n 1.French fries- Rs.100\n 2.Burger-Rs.150\n 3.Nachos with dips-Rs.200\n If not, press zero(0)");
+    scanf("%d",&e);
+    switch (e)
+    {
+    case 1 :
+    printf("-------------------FRENCH FRIES!---------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=100*f;
+    printf("Your total bill is= Rs.%d\n", d+x );
+    break;
+     case 2 :
+    printf("----------------------------BURGER!------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=150*f;
+    printf("Your total bill is= Rs.%d\n", d+x );
+    break;
+     case 3 :
+    printf("---------------------NACHOS WITH DIPS!--------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=200*f;
+    printf("Your total bill is= Rs.%d\n", d+x );
+    break;
+     case 0 :
+        printf("\n");
+        break;
+    default :
+    printf("\n");
+     goto fun1;
+       }
+    }
+    else
+    {
+
+       c=b*cost;
+    printf("\nYou've selected %d seats.\n The total cost for your tickets is= Rs.%d\n",b,c);
+     fun:
+    printf("\n\t\t***************************\n\t\tDo you want to GRAB A BITE.\n\t\t***************************\n If so, please select from below\n 1.French fries- Rs.100\n 2.Burger-Rs.150\n 3.Nachos with dips-Rs.200\n If not, press zero(0)");
+    scanf("%d",&e);
+    switch (e)
+    {
+    case 1 :
+    printf("-------------------------FRENCH FRIES!------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=100*f;
+    printf("Your total bill is= Rs.%d\n", c+x );
+    break;
+     case 2 :
+    printf("---------------------------BURGER!-------------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=150*f;
+    printf("Your total bill is= Rs.%d\n", c+x );
+    break;
+     case 3 :
+    printf("-------------------------NACHOS WITH DIPS!-------------------------\n Tell me how many do you want=\n");
+    scanf("%d", &f);
+    x=200*f;
+    printf("Your total bill is= Rs.%d\n", c+x );
+    break;
+     case 0 :
+        printf("\n");
+        break;
+    default :
+    printf("\n");
+    goto fun;
+
+    }
+    }
+
+
+    }
+    else
+    {
+        printf("wrong option\n");
+        cost=0;
+        goto seat;
+    }
+     return a;
+
+    }
+
+
+  int payment()
+    {
+        int g,u,q,t,h,l,m,n,r,s;
+        luck:
+    printf("\n\t\t\t****************\n\t\t\tPAYMENT OPTIONS\n\t\t\t****************\n 1.DEBIT/CREDIT CARD\n 2.PAYTM\n");
+    scanf("%d", &g);
+    switch (g)
+    {
+    case 1 :
+        printf("---------------- WELCOME TO CARD SERVICES -----------------------\n");
+    	printf("\n1.Enter Your Credit Card Number=");
+    	scanf("%d",&h);
+    	printf("\n2.Enter Name On Card=");
+    	scanf("%s",&h);
+    	printf("\n3.Enter Expiration Date DD/MM/YY=");
+    	scanf("%d/%d/%d",&q,&t,&u);
+    	printf("\n4.Enter Your CVV=");
+    	scanf("%d", &l);
+    	printf("\nPlease enter the ONE TIME PASSWORD you received on your mobile=");
+    	scanf("%d", &m);
+    	printf("-----------THANK YOU! YOUR PAYMENT IS SUCCESSFUL. ENJOY THE MOVIE :) -------");
+    	break;
+    case 2 :
+        printf("Please wait while we direct you to the paytm page\n--------------------- WELCOME TO PAYTM -------------------------\n");
+        printf("Enter your mobile number=");
+        scanf("%d", &n);
+        printf("Enter your paytm password=");
+        scanf("%s", &s);
+        printf("--------------------Press '1' to make your payment---------------------\n");
+        scanf("%d", &r);
+        printf("-----------THANK YOU! YOUR PAYMENT IS SUCCESSFUL. ENJOY THE MOVIE :) ------- ");
+        break;
+    default :
+        printf("\nSORRY WE DONT HAVE THAT PAYMENT MODE");
+        goto luck;
+    }
+    return g;
+  }
+
+
+   void cancel()
+   {
+
+       int o;
+       doyou:
+       printf("\nDO YOU WANT TO CANCEL THE BOOKING?\n *>1.YES\n *>2.NO\n");
+       scanf("%d", &o);
+       switch (o)
+       {
+       case 1 :
+        printf("\n\t\t\t*************************\n\t\t\tYOUR BOOKING IS CANCELLED\n\t\t\t*************************\n Your money will be refunded within 24 Hours.\n");
+        break;
+
+       case 2 :
+      printf("\n\t\t********************************************\n\t\tTHANK YOU FOR CHOSING US. HAVE A GOOD DAY :)\n\t\t********************************************\n");
+
+      break;
+
+       default :
+        printf("\n");
+        goto doyou;
+       }
+   }
+ void seatselect()
+ {
+     int m,l;
+     printf("The available  seats are:\n ");
+      printf("\t   --------------------------------------------------------------  \n");
+      printf("RECLINER| |    [1]  [2]  [3]  [4]  [5]  [6]  [7]  [8]  [9]  [0]          |\n ");
+      printf("          --------------------------------------------------------------\nSOFA:* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ");
+
+     for(m = 'A'; m <= 'Y'; ++m)
+       printf(" \t\t   *   [%c]     " , m    );
+        printf("    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * \n");
+ }
